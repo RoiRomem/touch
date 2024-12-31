@@ -1,4 +1,4 @@
-`touch` Command
+# touch Command
 Overview
 The `touch` command is a simple utility used in Unix-like operating systems (Linux, macOS, etc.) to create empty files. This project recreates this command using Python.
 Basic Syntax

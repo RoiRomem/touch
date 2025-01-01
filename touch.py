@@ -51,13 +51,20 @@ def modD(fileName, timeString):
     else:
         print(f"File '{fileName}' does not exist.")
 
+def modNone(fileName):
+    open(fileName, "x")
+
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: touch <modifier> <fileName> [<extra_argument>]")
+    if len(sys.argv) < 2:
+        print("Usage: touch <modifier> <fileName>")
         return
 
-    mod = sys.argv[1].replace("-", "")  # Remove the dash from the modifier
-    fileName = sys.argv[2]
+    if len(sys.argv) > 3:
+        mod = sys.argv[1].replace("-", "")  # Remove the dash from the modifier
+        fileName = sys.argv[2]
+    else:
+        mod = ""
+        fileName = sys.argv[1]
 
     if mod == "c":
         modC(fileName)
@@ -78,8 +85,9 @@ def main():
         timeString = sys.argv[3]
         modD(fileName, timeString)
     else:
-        print("Error: Modifier is invalid")
+        modNone(fileName)
 
 if __name__ == "__main__":
     main()
+
 
